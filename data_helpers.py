@@ -18,7 +18,7 @@ def feature_prep(dataset):
     df["input"] = df["whatdidyousee"].astype(str)
     df["target_list"] = df[category_list].astype(bool).values.tolist()
 
-    return 
+    return df[["input", "category", "target_list"]]
 
 def split_sample():
     raise NotImplementedError()

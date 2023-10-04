@@ -1,5 +1,9 @@
+import json
+
 def get_categories():
-    raise NotImplementedError()
+    with open("observation_categories.json", "r") as f:
+        categories = json.load(f)["categories"]
+    return categories
 
 
 def feature_prep(dataset):

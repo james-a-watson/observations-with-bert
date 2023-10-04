@@ -24,5 +24,11 @@ def feature_prep(dataset):
 
     return df[["input", "category", "target_list"]]
 
-def split_sample():
-    raise NotImplementedError()
+def split_sample(data, train_size):
+    train_dataset = data.sample(frac=train_size)
+    valid_dataset = data.drop(train_dataset.index).reset_index(drop=True)
+    train_dataset = train_dataset.reset_index(drop=True)
+
+    print(f"FULL Dataset: {data.shape}")
+    print(f"TRAIN Dataset: {train_dataset.shape}")
+    print(f"TEST Dataset: {valid_dataset.shape}")

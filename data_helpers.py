@@ -10,6 +10,16 @@ def get_categories():
     return categories
 
 
+def df_loader(df, batch_size, tokenizer):
+    custom = CustomDataset(df, tokenizer, MAX_LEN)
+    test_params = {
+        "batch_size": batch_size,
+        "shuffle": False,
+        "num_workers": 0
+        }
+    return DataLoader(custom, **test_params)
+
+
 def feature_prep(dataset):
     df = dataset[["whatdidyousee", "category2"]]
 

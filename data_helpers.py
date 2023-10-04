@@ -1,5 +1,9 @@
 import json
 
+MAX_LEN = 16
+TRAIN_BATCH_SIZE = 32
+VALID_BATCH_SIZE = 32
+
 def get_categories():
     with open("observation_categories.json", "r") as f:
         categories = json.load(f)["categories"]
@@ -32,3 +36,7 @@ def split_sample(data, train_size):
     print(f"FULL Dataset: {data.shape}")
     print(f"TRAIN Dataset: {train_dataset.shape}")
     print(f"TEST Dataset: {valid_dataset.shape}")
+
+    training_loader = df_loader(train_dataset, TRAIN_BATCH_SIZE)
+    validation_loader = df_loader(valid_dataset, VALID_BATCH_SIZE)
+    return training_loader, validation_loader

@@ -39,6 +39,15 @@ class CustomDataset:
         }
 
 
+def df_loader(df, batch_size, tokenizer):
+    custom = CustomDataset(df, tokenizer, MAX_LEN)
+    test_params = {
+        "batch_size": batch_size,
+        "shuffle": False,
+        "num_workers": 0
+        }
+    return DataLoader(custom, **test_params)
+
 
 def get_categories():
     with open("observation_categories.json", "r") as f:

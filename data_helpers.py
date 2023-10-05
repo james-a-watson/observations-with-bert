@@ -6,6 +6,15 @@ MAX_LEN = 16
 TRAIN_BATCH_SIZE = 32
 VALID_BATCH_SIZE = 32
 
+class CustomDataset:
+    def __init__(self, dataframe, tokenizer, max_len):
+        self.tokenizer = tokenizer
+        self.data = dataframe
+        self.input =  dataframe["input"]
+        self.targets =  self.data.target_list
+        self.max_len = max_len
+
+
 def get_categories():
     with open("observation_categories.json", "r") as f:
         categories = json.load(f)["categories"]

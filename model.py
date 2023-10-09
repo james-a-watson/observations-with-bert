@@ -14,7 +14,7 @@ class BERTClass(torch.nn.module):
         output = self.l3(output_2)
         return output
     
-def load_ckp(checkpoint_fpath, model, optimizer):
+def load_checkpoint(checkpoint_fpath, model, optimizer):
     checkpoint = torch.load(checkpoint_fpath)
     model.load_state_dict(checkpoint["state_dict"])
     optimizer.load_state_dict(checkpoint["optimizer"])

@@ -14,8 +14,12 @@ class BERTClass(torch.nn.module):
         output = self.l3(output_2)
         return output
     
-def load_ckp(): 
-    raise NotImplementedError()
+def load_ckp(checkpoint_fpath, model, optimizer):
+    checkpoint = torch.load(checkpoint_fpath)
+    model.load_state_dict(checkpoint["state_dict"])
+    optimizer.load_state_dict(checkpoint["optimizer"])
+    valid_loss_min = checkpoint["valid_loss_min"]
+    return model, optimizer, checkpoint["epoch"], valid_loss_min
 
 def train_model():
     raise NotImplementedError()

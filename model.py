@@ -2,6 +2,7 @@ import transformers
 import torch
 import shutil
     
+    
 class BERTClass(torch.nn.module):
     def __init__(self):
         super(BERTClass, self).__init__()
@@ -15,6 +16,7 @@ class BERTClass(torch.nn.module):
         output = self.l3(output_2)
         return output
 
+
 def load_checkpoint(checkpoint_fpath, model, optimizer):
     checkpoint = torch.load(checkpoint_fpath)
     model.load_state_dict(checkpoint["state_dict"])
@@ -22,10 +24,12 @@ def load_checkpoint(checkpoint_fpath, model, optimizer):
     valid_loss_min = checkpoint["valid_loss_min"]
     return model, optimizer, checkpoint["epoch"], valid_loss_min
 
+
 def save_checkpoint(state, is_best, checkpoint_path, best_model_path):
     torch.save(state, checkpoint_path)
     if is_best:
         shutil.copyfile(checkpoint_path, best_model_path)
+
 
 def train_model(
         start_epochs,

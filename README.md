@@ -1,1 +1,1 @@
-This Project is split into 3 main notebooks:
+This Project is split into 3 main notebooks designed to section off the different functionality:

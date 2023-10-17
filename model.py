@@ -17,6 +17,11 @@ class BERTClass(torch.nn.module):
         return output
 
 
+def loss_fn(outputs, targets):
+    pos_weights = torch.full([29], 5)
+    return torch.nn.BCEWithLogitsLoss(pos_weight=pos_weights)(outputs, targets)
+
+
 def load_checkpoint(checkpoint_fpath, model, optimizer):
     checkpoint = torch.load(checkpoint_fpath)
     model.load_state_dict(checkpoint["state_dict"])

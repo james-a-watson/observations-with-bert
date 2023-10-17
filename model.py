@@ -2,7 +2,7 @@ import transformers
 import torch
 import shutil
     
-    
+
 class BERTClass(torch.nn.module):
     def __init__(self):
         super(BERTClass, self).__init__()
@@ -78,7 +78,7 @@ def train_model(
 
         print(f" -- Epoch {epoch}: Validation Start -- ")
 
-        model.eval()ßß
+        model.eval()
 
         with torch.no_grad():
             val_targets = []

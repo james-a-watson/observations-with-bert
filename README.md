@@ -4,4 +4,4 @@ This Project is split into 3 main notebooks designed to section off the differen
 2. warm_start.ipynb - Build on the model created by model_train and further fine-tunes by exposing it to more data.
 3. preditions.ipynb - Take a dataset of text inputs and predicts the category
 
-To effectively utilise this notebook, work through the 
+To effectively utilise these notebook, work through the steps above keeping track of the most recent model and specifiying the path to that in the next notebook.
